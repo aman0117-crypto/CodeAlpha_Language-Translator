@@ -1,0 +1,658 @@
+/* ================================
+   Reset
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ================================
+   Body
+================================ */
+
+body {
+    font-family: Arial, sans-serif;
+
+    background: #f4f7fb;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    color: #1e293b;
+}
+
+
+/* ================================
+   Main Container
+================================ */
+
+.translator-container {
+    width: 100%;
+    max-width: 950px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 18px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 20px 50px rgba(15, 23, 42, 0.08);
+
+    animation: containerAppear 0.5s ease;
+}
+
+
+/* ================================
+   Container Animation
+================================ */
+
+@keyframes containerAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ================================
+   Header
+================================ */
+
+.translator-header {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+
+.translator-header h1 {
+    font-size: 32px;
+
+    color: #1e293b;
+
+    margin-bottom: 8px;
+
+    letter-spacing: -0.5px;
+}
+
+
+.translator-header p {
+    color: #64748b;
+
+    font-size: 15px;
+}
+
+
+/* ================================
+   Language Selection
+================================ */
+
+.language-selection {
+    display: flex;
+
+    align-items: end;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+
+.language-box {
+    flex: 1;
+}
+
+
+.language-box label {
+    display: block;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #334155;
+
+    margin-bottom: 7px;
+}
+
+
+.language-box select {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 9px;
+
+    font-size: 15px;
+
+    background: #ffffff;
+
+    color: #1e293b;
+
+    cursor: pointer;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.language-box select:hover {
+    border-color: #94a3b8;
+}
+
+
+.language-box select:focus {
+    border-color: #4f46e5;
+
+    box-shadow:
+        0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+
+/* ================================
+   Swap Button
+================================ */
+
+.swap-button {
+    width: 44px;
+
+    height: 44px;
+
+    flex-shrink: 0;
+
+    border: 1px solid #c7d2fe;
+
+    border-radius: 50%;
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.swap-button:hover {
+    background: #4f46e5;
+
+    color: #ffffff;
+
+    transform: rotate(180deg);
+
+    box-shadow:
+        0 5px 15px rgba(79, 70, 229, 0.25);
+}
+
+
+.swap-button:active {
+    transform: rotate(180deg) scale(0.95);
+}
+
+
+/* ================================
+   Translation Area
+================================ */
+
+.translation-area {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+
+/* ================================
+   Text Boxes
+================================ */
+
+.text-box {
+    border: 1px solid #cbd5e1;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.text-box:focus-within {
+    border-color: #4f46e5;
+
+    box-shadow:
+        0 0 0 3px rgba(79, 70, 229, 0.08);
+}
+
+
+/* ================================
+   Box Header
+================================ */
+
+.box-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 12px 15px;
+
+    background: #f8fafc;
+
+    border-bottom: 1px solid #e2e8f0;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #334155;
+}
+
+/* ================================
+   Text Box Actions
+================================ */
+
+.box-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* Small action icons */
+
+.icon-button {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 6px;
+
+    background: transparent;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.icon-button:hover {
+    background: #e2e8f0;
+
+    transform: translateY(-1px);
+}
+
+
+.icon-button:active {
+    transform: translateY(0);
+}
+
+
+#characterCount {
+    font-weight: normal;
+
+    color: #94a3b8;
+}
+
+
+/* ================================
+   Textarea
+================================ */
+
+textarea {
+    width: 100%;
+
+    height: 220px;
+
+    resize: none;
+
+    border: none;
+
+    outline: none;
+
+    padding: 16px;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    color: #1e293b;
+
+    background: #ffffff;
+}
+
+
+textarea::placeholder {
+    color: #94a3b8;
+}
+
+
+textarea:read-only {
+    background: #fcfdff;
+}
+
+
+/* ================================
+   Status
+================================ */
+
+#status {
+    font-size: 13px;
+
+    font-weight: 500;
+
+    transition: color 0.2s ease;
+}
+
+
+#status.error {
+    color: #dc2626;
+}
+
+
+#status.success {
+    color: #16a34a;
+}
+
+
+#status.loading {
+    color: #4f46e5;
+}
+
+
+/* ================================
+   Translate Button
+================================ */
+
+.translate-button {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #4f46e5;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.translate-button:hover {
+    background: #4338ca;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 6px 15px rgba(79, 70, 229, 0.2);
+}
+
+
+.translate-button:active {
+    transform: translateY(0);
+}
+
+
+.translate-button:disabled {
+    background: #a5b4fc;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* ================================
+   Action Buttons
+================================ */
+
+.action-buttons {
+    margin-top: 12px;
+}
+
+.action-buttons button {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #334155;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.action-buttons button:hover {
+    background: #f8fafc;
+
+    border-color: #94a3b8;
+
+    transform: translateY(-1px);
+}
+
+
+.action-buttons button:active {
+    transform: translateY(0);
+}
+
+
+/* ================================
+   Focus Accessibility
+================================ */
+
+button:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgba(79, 70, 229, 0.25);
+
+    outline-offset: 2px;
+}
+
+
+/* ================================
+   Footer
+================================ */
+
+footer {
+    text-align: center;
+
+    margin-top: 30px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #f1f5f9;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+
+/* ================================
+   Responsive Design
+================================ */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 15px;
+
+        align-items: flex-start;
+    }
+
+
+    .translator-container {
+        padding: 20px;
+
+        margin-top: 15px;
+    }
+
+
+    .translator-header {
+        margin-bottom: 25px;
+    }
+
+
+    .translator-header h1 {
+        font-size: 25px;
+    }
+
+
+    .translator-header p {
+        font-size: 14px;
+    }
+
+
+    .translation-area {
+        grid-template-columns: 1fr;
+    }
+
+
+    .language-selection {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .swap-button {
+        align-self: center;
+
+        transform: rotate(90deg);
+    }
+
+
+    .swap-button:hover {
+        transform: rotate(270deg);
+    }
+
+
+    textarea {
+        height: 180px;
+    }
+
+     .box-header {
+        padding: 10px 12px;
+    }
+
+    .icon-button {
+        width: 28px;
+        height: 28px;
+
+        font-size: 14px;
+    }
+
+}
+
+
+/* ================================
+   Small Mobile Devices
+================================ */
+
+@media (max-width: 400px) {
+
+    body {
+        padding: 10px;
+    }
+
+
+    .translator-container {
+        padding: 16px;
+    }
+
+
+    .translator-header h1 {
+        font-size: 22px;
+    }
+
+
+    .action-buttons {
+        gap: 8px;
+    }
+
+
+    .action-buttons button {
+        padding: 9px 10px;
+
+        font-size: 13px;
+    }
+
+}
